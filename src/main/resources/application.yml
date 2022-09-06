@@ -1,0 +1,64 @@
+# spring:
+#   h2:
+#     console:
+#       enabled: true
+#   jpa:
+#     show-sql: true
+#     properties:
+#       hibernate:
+#         format_sql: true
+#     generate-ddl: false
+#     hibernate:
+#       ddl-auto: create-drop
+#   datasource:
+#     url: jdbc:h2:mem:367791ec-6d6d-41a6-b16d-fc03ab89cd48
+#     username: sa
+#     password: 1q2w3e4r
+# #   datasource:
+# #     url: jdbc:mysql://localhost:3306/book_manager
+# #     username: root
+# #     password:
+#   sql:
+#     init:
+#       mode: always
+
+# server:
+#   port: 8070
+
+# logging:
+#   level:
+#     root: trace
+
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    # database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true #Hibernate가 초기화 되기 전에 data.sql 스크립트가 실행되어 data.sql을 실행하려면 해당 옵션(defer-datasource-initialization)을 true로 설정해야된다고 합니다.
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://43.200.90.255:55573/book_manager?characterEncoding=utf-8
+    username: axis1130 
+    password: 1q2w3e4r
+    # data: classpath:data.sql
+  sql:
+    init:
+      mode: always
+  # datasource:
+  #   url: jdbc:h2:mem:367791ec-6d6d-41a6-b16d-fc03ab89cd48;DB_CLOSE_ON_EXIT=FALSE
+  #   username: sa
+  #   password: 
+
+server:
+    port : 8080
+# logging:
+#   level:
+#     root: trace
